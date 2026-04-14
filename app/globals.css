@@ -129,6 +129,19 @@ img {
   background: rgba(6, 10, 24, 0.9);
 }
 
+
+#projects,
+#projects * {
+  max-width: 100%;
+}
+
+#projects img {
+  display: block;
+}
+
+
+
+
 /* Firefox */
 * {
   scrollbar-width: thin;
