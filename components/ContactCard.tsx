@@ -34,7 +34,7 @@ export default function ContactCard() {
 
               <a
                 href="/resume.pdf"
-                download
+                
                 className="block rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-center font-semibold text-white/90 transition hover:bg-white/10"
               >
                
