@@ -15,6 +15,8 @@ export default function TiltCard({ children }: TiltCardProps) {
   const smoothY = useSpring(rotateY, { stiffness: 120, damping: 12 });
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 1024) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
