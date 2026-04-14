@@ -24,7 +24,6 @@ import MarqueeStrip from "@/components/MarqueeStrip";
 import SpotlightCard from "@/components/SpotlightCard";
 import TextReveal from "@/components/TextReveal";
 import TiltCard from "@/components/TiltCard";
-
 import GlowSection from "@/components/GlowSection";
 import AchievementsSection from "@/components/AchievementsSection";
 
@@ -87,9 +86,8 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     desc: "A concept portfolio with client attraction in mind.",
-    details:
-      "An idea that blends a portfolio website",
-    stack: ["Html", "Css", "Js","Python","Branding", "Interaction Design"],
+    details: "An idea that blends a portfolio website",
+    stack: ["Html", "Css", "Js", "Python", "Branding", "Interaction Design"],
     category: "Portfolio",
     image: "/portfolio.png",
     live: "https://portfolio2236.netlify.app/",
@@ -106,7 +104,6 @@ const projects: Project[] = [
     live: "https://gymapp1234.netlify.app/",
     github: "https://github.com/saunishpal/gymapp.git",
   },
-   
   {
     title: "Spice Garden – Premium Restaurant Website",
     desc: "A modern restaurant website designed to highlight menu offerings, ambience, testimonials, reservation details, and interactive customer support through a built-in assistant",
@@ -118,9 +115,7 @@ const projects: Project[] = [
     live: "https://restaurant8989.netlify.app/",
     github: "https://github.com/saunishpal/Restaurant_chatbot_project.git",
   },
-
 ];
-
 
 const categories = ["All", "AI", "Business", "Web", "Portfolio"];
 
@@ -217,93 +212,152 @@ export default function Home() {
         <StatsStrip />
 
         <Reveal>
-  <section id="about" className="px-6 py-24">
-    <div className="mx-auto max-w-6xl">
-      <SectionTitle
-        eyebrow="About Me"
-        title="I Help Businesses Build Premium Websites, Chatbot Solutions, and Secure Digital Experiences"
-        subtitle="I’m a developer passionate about building premium websites, modern UI, chatbot-integrated experiences, AI-inspired products, and security-conscious web solutions. I focus on combining clean development, strong visual design, and business-oriented thinking to create digital products that look polished, build trust, and leave a strong first impression. I enjoy creating websites that are not only visually attractive but also more interactive through chatbot features that help users get answers, explore services, and engage more easily. Along with web development and frontend design, I also have an interest in authorized web security testing and VAPT, which adds a more thoughtful approach to reliability, trust, and real-world quality. My goal is to build digital experiences that feel modern, useful, professional, and ready to support real business growth."
-      />
-    </div>
-  </section>
-</Reveal>
+          <section id="about" className="px-6 py-24">
+            <div className="mx-auto max-w-6xl">
+              <SectionTitle
+                eyebrow="About Me"
+                title="I Help Businesses Build Premium Websites, Chatbot Solutions, and Secure Digital Experiences"
+                subtitle="I’m a developer passionate about building premium websites, modern UI, chatbot-integrated experiences, AI-inspired products, and security-conscious web solutions. I focus on combining clean development, strong visual design, and business-oriented thinking to create digital products that look polished, build trust, and leave a strong first impression. I enjoy creating websites that are not only visually attractive but also more interactive through chatbot features that help users get answers, explore services, and engage more easily. Along with web development and frontend design, I also have an interest in authorized web security testing and VAPT, which adds a more thoughtful approach to reliability, trust, and real-world quality. My goal is to build digital experiences that feel modern, useful, professional, and ready to support real business growth."
+              />
+            </div>
+          </section>
+        </Reveal>
 
         <Reveal>
-          <section id="projects" className="section-angle px-6 py-24">
+          <section id="projects" className="section-angle px-5 py-20 sm:px-6 sm:py-24">
             <GlowSection>
-              <div className="mx-auto max-w-6xl">
+              <div className="mx-auto max-w-6xl px-1 sm:px-0">
                 <SectionTitle
                   eyebrow="Portfolio"
                   title="Featured Projects"
                   subtitle="A selection of projects and concepts that reflect my design taste, technical direction, and product thinking."
                 />
 
-                <ProjectFilters
-                  categories={categories}
-                  activeCategory={activeCategory}
-                  onChange={setActiveCategory}
-                />
+                <div className="mt-8 sm:mt-10">
+                  <ProjectFilters
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onChange={setActiveCategory}
+                  />
+                </div>
 
-                <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
                   {filteredProjects.map((project) => (
-                    <TiltCard key={project.title}>
-                      <SpotlightCard>
-                        <div
-                          style={{ transform: "translateZ(24px)" }}
-                          className="mb-4 flex gap-2"
-                        >
-                          <span className="h-2.5 w-2.5 rounded-full bg-cyan-400/70" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/70" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
-                        </div>
+                    <div key={project.title} className="min-w-0">
+                      <TiltCard>
+                        <SpotlightCard>
+                          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.12),transparent_35%)] opacity-70" />
 
-                        <div
-                          style={{ transform: "translateZ(36px)" }}
-                          className="mb-4 overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-                        >
-                          <div className="relative h-44 w-full">
-                            <Image
-                              src={project.image}
-                              alt={`${project.title} preview`}
-                              fill
-                              className="object-cover transition duration-500 group-hover:scale-105"
-                            />
-                          </div>
-                        </div>
-
-                        <div
-                          style={{ transform: "translateZ(28px)" }}
-                          className="mb-3 flex items-center justify-between gap-3"
-                        >
-                          <h3 className="text-xl font-semibold">{project.title}</h3>
-                          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
-                            {project.category}
-                          </span>
-                        </div>
-
-                        <p
-                          style={{ transform: "translateZ(20px)" }}
-                          className="mt-3 text-sm leading-6 text-white/70"
-                        >
-                          {project.desc}
-                        </p>
-
-                        <div
-                          style={{ transform: "translateZ(26px)" }}
-                          className="mt-5 flex items-center justify-between"
-                        >
-                          <button
-                            onClick={() => setSelectedProject(project)}
-                            className="text-sm font-medium text-cyan-300 transition group-hover:text-cyan-200"
+                          <div
+                            style={{ transform: "translateZ(24px)" }}
+                            className="mb-4 flex gap-2"
                           >
-                            View Details →
-                          </button>
-                          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
-                            Featured
-                          </span>
-                        </div>
-                      </SpotlightCard>
-                    </TiltCard>
+                            <span className="h-2.5 w-2.5 rounded-full bg-cyan-400/70" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-400/70" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
+                          </div>
+
+                          <div
+                            style={{ transform: "translateZ(36px)" }}
+                            className="group/image relative mb-4 overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                          >
+                            <div className="relative h-44 w-full sm:h-48">
+                              <Image
+                                src={project.image}
+                                alt={`${project.title} preview`}
+                                fill
+                                className="object-cover transition duration-700 group-hover/image:scale-110"
+                              />
+                            </div>
+
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/85 via-[#050816]/20 to-transparent opacity-80 transition duration-500 group-hover/image:opacity-95" />
+
+                            <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+                              <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-white/80 backdrop-blur">
+                                Premium UI
+                              </span>
+                              <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] text-cyan-200 backdrop-blur">
+                                {project.category}
+                              </span>
+                            </div>
+
+                            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3">
+                              <button
+                                onClick={() => setSelectedProject(project)}
+                                className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur transition hover:bg-white/20"
+                              >
+                                Quick View
+                              </button>
+
+                              {project.live && project.live !== "#" && (
+                                <a
+                                  href={project.live}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-medium text-cyan-200 backdrop-blur transition hover:bg-cyan-400/20"
+                                >
+                                  Live Demo
+                                </a>
+                              )}
+                            </div>
+                          </div>
+
+                          <div
+                            style={{ transform: "translateZ(28px)" }}
+                            className="mb-3 flex items-start justify-between gap-3"
+                          >
+                            <h3 className="min-w-0 text-xl font-semibold">{project.title}</h3>
+                            <span className="shrink-0 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
+                              Featured
+                            </span>
+                          </div>
+
+                          <p
+                            style={{ transform: "translateZ(20px)" }}
+                            className="mt-3 text-sm leading-6 text-white/70"
+                          >
+                            {project.desc}
+                          </p>
+
+                          <div
+                            style={{ transform: "translateZ(24px)" }}
+                            className="mt-5 flex flex-wrap gap-2"
+                          >
+                            {project.stack.slice(0, 3).map((item) => (
+                              <span
+                                key={item}
+                                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-white/70"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div
+                            style={{ transform: "translateZ(26px)" }}
+                            className="mt-6 flex items-center justify-between"
+                          >
+                            <button
+                              onClick={() => setSelectedProject(project)}
+                              className="text-sm font-medium text-cyan-300 transition hover:text-cyan-200"
+                            >
+                              View Details →
+                            </button>
+
+                            {project.github && project.github !== "#" && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-sm font-medium text-white/60 transition hover:text-white/90"
+                              >
+                                Source ↗
+                              </a>
+                            )}
+                          </div>
+                        </SpotlightCard>
+                      </TiltCard>
+                    </div>
                   ))}
                 </div>
 
@@ -317,15 +371,13 @@ export default function Home() {
           </section>
         </Reveal>
 
-        
-
         <Reveal>
           <SkillsSection />
         </Reveal>
 
         <Reveal>
-           <AchievementsSection />
-       </Reveal>
+          <AchievementsSection />
+        </Reveal>
 
         <Reveal>
           <TimelineSection />
@@ -351,7 +403,7 @@ export default function Home() {
                     "Modern UI/UX Revamps",
                     "Frontend-Focused Product Builds",
                     "Basic VAPT / Web Security Testing",
-                    "Security Review for Small Websites"
+                    "Security Review for Small Websites",
                   ].map((service) => (
                     <SpotlightCard key={service}>
                       <h3 className="text-lg font-semibold">{service}</h3>
