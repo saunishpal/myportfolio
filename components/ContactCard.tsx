@@ -37,7 +37,7 @@ export default function ContactCard() {
                 download
                 className="block rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-center font-semibold text-white/90 transition hover:bg-white/10"
               >
-                Download Resume
+               
               </a>
             </div>
           </div>
