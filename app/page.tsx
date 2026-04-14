@@ -226,118 +226,114 @@ export default function Home() {
         <Reveal>
           <>
             <section
-              id="projects"
-              className="section-angle scroll-mt-28 px-5 py-20 sm:px-6 md:hidden"
-            >
-              <div className="mx-auto max-w-6xl">
-                <SectionTitle
-                  eyebrow="Portfolio"
-                  title="Featured Projects"
-                  subtitle="A selection of projects and concepts that reflect my design taste, technical direction, and product thinking."
-                />
+  id="projects"
+  className="section-angle scroll-mt-28 px-5 py-20 sm:px-6 sm:py-24"
+>
+  <div className="mx-auto max-w-6xl">
+    <SectionTitle
+      eyebrow="Portfolio"
+      title="Featured Projects"
+      subtitle="A selection of projects and concepts that reflect my design taste, technical direction, and product thinking."
+    />
 
-                <div className="mt-8">
-                  <ProjectFilters
-                    categories={categories}
-                    activeCategory={activeCategory}
-                    onChange={setActiveCategory}
-                  />
-                </div>
+    <div className="mt-8">
+      <ProjectFilters
+        categories={categories}
+        activeCategory={activeCategory}
+        onChange={setActiveCategory}
+      />
+    </div>
 
-                <div className="mt-10 grid grid-cols-1 gap-5">
-                  {filteredProjects.map((project) => (
-                    <div
-                      key={project.title}
-                      className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5"
-                    >
-                      <div className="relative h-48 w-full">
-                        <Image
-                          src={project.image}
-                          alt={`${project.title} preview`}
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/85 via-[#050816]/20 to-transparent" />
+    <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {filteredProjects.map((project) => (
+        <div
+          key={project.title}
+          className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5"
+        >
+          <div className="relative h-48 w-full">
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/85 via-[#050816]/20 to-transparent" />
 
-                        <div className="absolute left-3 top-3 flex flex-wrap gap-2">
-                          <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-white/80">
-                            Premium UI
-                          </span>
-                          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] text-cyan-200">
-                            {project.category}
-                          </span>
-                        </div>
-                      </div>
+            <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+              <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-white/80">
+                Premium UI
+              </span>
+              <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] text-cyan-200">
+                {project.category}
+              </span>
+            </div>
+          </div>
 
-                      <div className="p-5">
-                        <div className="mb-3 flex items-start justify-between gap-3">
-                          <h3 className="min-w-0 text-lg font-semibold">
-                            {project.title}
-                          </h3>
-                          <span className="shrink-0 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
-                            Featured
-                          </span>
-                        </div>
+          <div className="p-5">
+            <div className="mb-3 flex items-start justify-between gap-3">
+              <h3 className="min-w-0 text-lg font-semibold">{project.title}</h3>
+              <span className="shrink-0 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
+                Featured
+              </span>
+            </div>
 
-                        <p className="text-sm leading-6 text-white/70">
-                          {project.desc}
-                        </p>
+            <p className="text-sm leading-6 text-white/70">{project.desc}</p>
 
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {project.stack.slice(0, 3).map((item) => (
-                            <span
-                              key={item}
-                              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-white/70"
-                            >
-                              {item}
-                            </span>
-                          ))}
-                        </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.stack.slice(0, 3).map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-white/70"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
 
-                        <div className="mt-5 flex items-center justify-between gap-3">
-                          <button
-                            onClick={() => setSelectedProject(project)}
-                            className="text-sm font-medium text-cyan-300"
-                          >
-                            View Details →
-                          </button>
+            <div className="mt-5 flex items-center justify-between gap-3">
+              <button
+                onClick={() => setSelectedProject(project)}
+                className="text-sm font-medium text-cyan-300"
+              >
+                View Details →
+              </button>
 
-                          <div className="flex items-center gap-3">
-                            {project.live && project.live !== "#" && (
-                              <a
-                                href={project.live}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-sm font-medium text-cyan-200"
-                              >
-                                Live
-                              </a>
-                            )}
+              <div className="flex items-center gap-3">
+                {project.live && project.live !== "#" && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-medium text-cyan-200"
+                  >
+                    Live
+                  </a>
+                )}
 
-                            {project.github && project.github !== "#" && (
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-sm font-medium text-white/70"
-                              >
-                                Source
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {filteredProjects.length === 0 && (
-                  <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 text-center text-white/60">
-                    No projects found in this category yet.
-                  </div>
+                {project.github && project.github !== "#" && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-medium text-white/70"
+                  >
+                    Source
+                  </a>
                 )}
               </div>
-            </section>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {filteredProjects.length === 0 && (
+      <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 text-center text-white/60">
+        No projects found in this category yet.
+      </div>
+    )}
+  </div>
+</section>
 
             <section
               id="projects-desktop"
