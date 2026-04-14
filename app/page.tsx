@@ -69,7 +69,7 @@ const projects: Project[] = [
     category: "Business",
     image: "/sunvolt energy.png",
     live: "https://sunvolt-frontend.vercel.app/",
-    github: "https://github.com/saunishpal/Solar-Ai-lead-generator.git",
+    github: "https://github.com/saunishpal/Solar-lead-generator.git",
   },
   {
     title: "LuxeCart",
